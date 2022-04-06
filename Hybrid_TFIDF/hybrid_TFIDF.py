@@ -496,10 +496,15 @@ def main():
         return redirect(url_for('test'))
     return render_template('test.html')
 
+def post():
+    value=request.args.get('input')
+    msg="%s님 환영합니다." %value
+    return msg
+    
 @app.route('/hell', methods=['GET', 'POST'])
 def test():
     return render_template('hell.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
