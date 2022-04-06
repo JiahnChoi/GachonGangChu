@@ -9,13 +9,15 @@
   <center><label for="lname">학년 (Ex. 3학년 -> 3) :</label><br></center>
   <center><input type="text" id="lname" name="lname" value=""><br></center>
   <center><label for="jname">가장 선호하는 교수님 (Ex. 가나다 교수님 -> 가나다) : </label><br></center>
-  <center><input type="text" id="jname" name="fname" value=""><br></center>
+  <center><input type="text" id="jname" name="jname" value=""><br></center>
   <center><label for="kname">가장 선호하지 않는 교수님 (Ex. 가나다 교수님 -> 가나다): </label><br></center>
-  <center><input type="text" id="kname" name="fname" value=""><br></center>
+  <center><input placeholder="가장 선호하지 않는 교수님" type="text" id="kname" name="fname" value="" required><br></center>
+  <center><input placeholder="가장 선호하지 않는 교수님" type="text2" id="kname2" name="fname2" value="" required><br></center>
 </form>
 <br>
-<form action=" " method="POST">
-  <center><button type="submit", value="Button"> 페이지 넘기기 </button></center>
+<form action="/post" method="get">
+ 
+  <center><input type="submit", value="Button"> 페이지 넘기기 </button></center>
 </form> 
 
 <p> 버튼 클릭시 "/action_page.php"로 연결하기</p>
