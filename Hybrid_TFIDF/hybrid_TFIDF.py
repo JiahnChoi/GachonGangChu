@@ -488,21 +488,25 @@ from flask import Flask, render_template, redirect, request, url_for
 # course_name = input("수강했던 과목을 입력하세요: ")
 # print()
 # print(get_recommendations(course_name))
-app = Flask(__name__)
 
+app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'POST':
+        
         return redirect(url_for('test'))
     return render_template('test.html')
-
-def post():
-    value=request.args.get('input')
-    msg="%s님 환영합니다." %value
-    return msg
     
 @app.route('/hell', methods=['GET', 'POST'])
 def test():
+    stdnum=request.form['stdnum']
+    grade=request.form['grade']
+    favpro=request.form['favpro']
+    unfavpro=request.form['unfavpro']
+    print(stdnum)
+    print(grade)
+    print(favpro)
+    print(unfavpro)
     return render_template('hell.html')
 
 if __name__ == '__main__':
