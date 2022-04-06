@@ -507,7 +507,7 @@ def test():
     print(grade)
     print(favpro)
     print(unfavpro)
-    return render_template('hell.html')
+    return render_template('index.html',user="지안", data={'level':4,'point':201833000}, major="소프트웨어")
 
 if __name__ == '__main__':
     app.run(debug=True)
