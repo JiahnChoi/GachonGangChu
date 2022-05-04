@@ -1,0 +1,56 @@
+<!--기본 레이아웃 코드-->
+<!--부트스트랩 사용-->
+<!--구분을 위해 색은 대충 넣어놨어요-->
+<!doctype html>
+<html lang="ko"> 
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> 
+    <title>가천강추</title> 
+    <style>
+        #wrap{width: 1000px; height: 1000px; margin: 0; text-align: center;}
+        .header{width: 1000px; height: 100px; line-height: 100px; text-align: left;}
+        .nav{width: 1000px; height: 50px; line-height: 50px;}
+        .content1{width: 1000px; height: 300px; line-height: 300px; background-color: aquamarine;}
+        .content2{float: left; width: 500px; height: 500px; line-height: 500px; background-color:palevioletred}
+        .content3{float: left; width: 500px; height: 500px; line-height: 500px; background-color: peru}
+        .footer{clear:both; width: 1000px; height: 100px; line-height: 100px; background-color: blanchedalmond;}
+    </style>
+</head> 
+<body> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"> </script> 
+
+    <div id="wrap">
+        <div class="header">
+            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxNzExMDFfODYg%2FMDAxNTA5NDg2MjM2NzU4.fN0y5nwT8xhFnSW_MhJAGWoAbpJ1cSBmTvaqEFnu9Zkg.4J22SayuD_lvO7B_5Ooi0JGRpVeB8k0uXvXc1ZrZ54wg.JPEG.yoonjung122%2F%25B4%25D9%25BF%25EE%25B7%25CE%25B5%25E5-1.jpg&type=sc960_832" height="80px">가천강추</img>
+        </div>
+        <div class="nav">
+            <button type="button" class="btn btn-primary">전공추천</button> 
+            <button type="button" class="btn btn-danger">교양추천</button> 
+            <button type="button" class="btn btn-success">과목일람</button> 
+            <a class="btn btn-info" href="https://www.gachon.ac.kr/kor/index.do" target="_blank" role="button">학교 홈페이지로</a> 
+            <a class="btn btn-warning" href="https://www.gachon.ac.kr/kor/1097/subview.do" target="_blank" role="button">학사요람으로</a> 
+            <button type="button" class="btn btn-light">팀원소개</button> 
+            <a class="btn btn-dark" href="https://github.com/JiahnChoi/GachonGangChu" target="_blank" role="button">github</a> 
+            <button type="button" class="btn btn-secondary">초기화면</button> 
+            
+        </div>
+        <div class="content1">
+            <h1>가천강추 프로젝트에 대한 설명</h1>
+            <p>가천강추는 가천대학교 소프트웨어 졸업작품으로, 원하는 강의를 추천해 줍니다.</p>
+        </div>
+        <div class="content2">
+            <button type="button" class="btn btn-primary">전공 추천 바로가기</button> 
+        </div>
+        <div class="content3">
+            <button type="button" class="btn btn-danger">교양 추천 바로가기</button>
+        </div>
+        <div class="footer">
+            <p>가천대 소프트웨어학과 졸업작품</p>
+            <button type="button" class="btn btn-link">위로</button>
+        </div>
+    </div>
+</body> 
+</html>
