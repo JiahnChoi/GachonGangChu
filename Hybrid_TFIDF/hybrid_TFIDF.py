@@ -359,7 +359,7 @@ import pandas as pd # 데이터프레임 사용을 위해
 from sklearn.metrics.pairwise import cosine_similarity
 
 # 키워드 csv파일 가져오기
-csv = pd.read_csv('C:/Users/jjjmi/.vscode/GachonGangChu-1/Hybrid_TFIDF/2020_1_교양_키워드.csv', encoding='cp949')
+csv = pd.read_csv('C:/Users/USer/.git/GachonGangChu/TFIDF/2020_1_교양_키워드.csv', encoding='cp949')
 
 def csv_to_dataFrame():
     # 과목명 리스트형태로 가져오기
@@ -461,7 +461,7 @@ def get_recommendations(course, cosine_matrix):
     return result
 
 
-# 전공 추천
+# # 전공 추천
 app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -505,4 +505,5 @@ def method():
         result = get_recommendations(name, cosine_matrix)
         return  "결과값: {}".format(result.to_html(justify='center', border=2))
 
-
+if __name__ == '__main__':
+    app.run(debug=True)
