@@ -504,7 +504,12 @@ def test():
 if __name__ == '__main__':
     app.run(debug=True)
 
+
 # 교양 추천
+@app.route('/')
+def main(): 
+    return render_template("sub.html") 
+
 @app.route('/method', methods=['GET', 'POST']) 
 def method(): 
     if request.method == 'GET': 
