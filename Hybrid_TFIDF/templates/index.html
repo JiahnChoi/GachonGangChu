@@ -11,16 +11,6 @@
         <img src = "https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxODAxMDNfODIg%2FMDAxNTE0OTc1MjYzNTgy.7SLrrTMUPD94np9akQjttNRAX6BbnK6XgifvHYeyM88g.Zbn9o0uNd1dln3JuabrJ5wAVL5mqoRL22uMOmdGVEZog.PNG.wintermelon1%2F%25B0%25A1%25C3%25B5%25B4%25EB%25C1%25A4%25BD%25C3%25B5%25EE%25B1%25DE_%25BC%25F6%25B4%25EB5.png&type=sc960_832" style="width:10%"
     <h1>가천강추</h1> <!--왜 h1이 제대로 적용되지 않는건지 해결 못한 상태. 해결예정!-->
     </div>
-<!--
-   <div class="mainpage">
-        <h1>가천강추</h1>
-        이름 : {{user}}
-        학년 : {{data.level}}
-        학번 : {{data.point}}
-        학과 : {{major}}
-
-    </div>
-    !-->
     <ul class="menu">
         <!--연결할 페이지에 아이디 부여하면 작동함. 일단 페이지 없이 임시로 링크만 걸어둔 상태.
         클릭은 되지만 넘어갈 페이지가 없어서 작동하지 않는다.!-->
@@ -34,10 +24,13 @@
 </nav>
 <div class="mainpage"><!--대충 사용자 정보. 로그인 아님.!-->
         <!--<h1>가천강추</h1>!-->
-        이름 : {{user}}
-        학년 : {{data.level}}
-        학번 : {{data.point}}
-        학과 : {{major}}
+        학번 : {{user}} <br>
+        학년 : {{level}}<br>
+        트랙 : {{point}}<br>
+        선호하는 교수님 : {{fav_pro}}<br>
+        선호하지 않는 교수님 : {{unfav_pro}}<br>
+        전공 추천 목록입니다 : {{result1}}<br>
+        이번 학기에 수강하실 수 있는 강의 중 새로 개설된 강의입니다 : {{result2}}<br>
 
     </div>
 </body>
