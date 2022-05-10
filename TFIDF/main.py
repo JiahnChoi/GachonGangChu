@@ -41,6 +41,7 @@ for k in range(len(csv)):
 #print()
 #print(keyword_Word)
 
+
 # 데이터프레임 만들기
 dataFrame = pd.DataFrame(index=course_name_list, columns=keyword_Word)
 
