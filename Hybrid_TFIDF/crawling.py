@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import Select
 driver = webdriver.Chrome('C:/Users/USer/chromedriver_win32/chromedriver.exe')
 
 # webdriver가 페이지에 접속하도록 명령
-driver.get('http://sg.gachon.ac.kr/main?attribute=timeTable&gbn=P&lang=ko%27%27)
+driver.get('http://sg.gachon.ac.kr/main?attribute=timeTable&gbn=P&lang=ko%27%27')
 driver.maximize_window()
 
 # 검색할 년도 설정

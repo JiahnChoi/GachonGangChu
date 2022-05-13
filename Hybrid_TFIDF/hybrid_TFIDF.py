@@ -287,7 +287,6 @@ def required_rec(SW, student_ID, track, year ,fav_pro, hate_pro):
     lecture = lecture.sort_values(by=['점수'], axis=0, ascending=False)
     lecture.drop_duplicates(['교과명'], keep='first', inplace=True, ignore_index=False)
     final = pd.concat([final, lecture])
-    print('전공 추천 목록입니다.')
     final.drop(['점수'], axis=1, inplace=True)
     return final
 
@@ -351,9 +350,8 @@ def new_rec(SW, prev, past, year):
     return new_result
 
 
-print(required_rec(cur, 18, '제네럴', 4, '강상우', '최재영'))
 
-# ############################### TFIDF ###########################################3     
+############################### TFIDF ###########################################3     
 # -*- coding: utf-8 -*-
 import pandas as pd # 데이터프레임 사용을 위해
 from sklearn.metrics.pairwise import cosine_similarity
@@ -467,31 +465,24 @@ app = Flask(__name__)
 def main():
     if request.method == 'POST':   
         return redirect(url_for('test'))
-    return render_template('test.html')
-    
+    return render_template('required.html')
+rere=required_rec(cur, 18, '제네럴', 4, '강상우', '최재영')
+new_reco=new_rec(cur,fir,sec,3)
 @app.route('/send', methods=['GET', 'POST'])
 def test():
     stdnum=request.form['stdnum']
-    grade=request.form['grade']
+    grade=int(request.form['grade'])
     favpro=request.form['favpro']
     unfavpro=request.form['unfavpro']
     track=request.form['track']
+    print(stdnum)
+    print(grade)
     recommend = required_rec(cur, stdnum, track, grade, favpro, unfavpro)
     new_lec=new_rec(cur,fir,sec,grade)
     print(recommend)
     print(new_lec)
-    return render_template('index.html',user=stdnum, level=grade,point=track, fav_pro=favpro, unfav_pro=unfavpro,result1=recommend, result2=new_lec)
+    return render_template('index.html',user=stdnum, level=grade,point=track, fav_pro=favpro, unfav_pro=unfavpro,result1=rere, result2=new_lec)
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-# 교양 추천
-@app.route('/')
-def main(): 
-    return render_template("sub.html") 
-
-@app.route('/method', methods=['GET', 'POST']) 
 def method(): 
     if request.method == 'GET': 
         name = request.args.get("name") 
