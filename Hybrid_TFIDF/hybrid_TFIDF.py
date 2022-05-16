@@ -463,8 +463,6 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
-    if request.method == 'POST':   
-        return redirect(url_for('move1'))
     return render_template('gaga.html')
 
 @app.route('/move1', methods=['post'])
