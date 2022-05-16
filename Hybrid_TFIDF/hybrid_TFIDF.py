@@ -350,7 +350,6 @@ def new_rec(SW, prev, past, year):
     return new_result
 
 
-
 ############################### TFIDF ###########################################3     
 # -*- coding: utf-8 -*-
 import pandas as pd # 데이터프레임 사용을 위해
@@ -461,13 +460,26 @@ def get_recommendations(course, cosine_matrix):
 
 # # 전공 추천
 app = Flask(__name__)
+
 @app.route('/', methods=['GET', 'POST'])
 def main():
     if request.method == 'POST':   
+        return redirect(url_for('move1'))
+    return render_template('gaga.html')
+
+@app.route('/move1', methods=['post'])
+def move1():
+    if request.method == 'GET':   
         return redirect(url_for('test'))
-    return render_template('required.html')
-rere=required_rec(cur, 18, '제네럴', 4, '강상우', '최재영')
-new_reco=new_rec(cur,fir,sec,3)
+    return render_template('required2.html')
+
+@app.route('/move2', methods=['GET', 'POST'])
+def move2():
+    if request.method == 'GET':   
+        return redirect(url_for('method'))
+    return render_template('sub.html')
+
+
 @app.route('/send', methods=['GET', 'POST'])
 def test():
     stdnum=request.form['stdnum']
@@ -475,18 +487,15 @@ def test():
     favpro=request.form['favpro']
     unfavpro=request.form['unfavpro']
     track=request.form['track']
-    print(stdnum)
-    print(grade)
     recommend = required_rec(cur, stdnum, track, grade, favpro, unfavpro)
     new_lec=new_rec(cur,fir,sec,grade)
-    print(recommend)
-    print(new_lec)
-    return render_template('index.html',user=stdnum, level=grade,point=track, fav_pro=favpro, unfav_pro=unfavpro,result1=rere, result2=new_lec)
+    return render_template('required3.html',user=stdnum, level=grade,point=track, fav_pro=favpro, unfav_pro=unfavpro,result1=recommend, result2=new_lec)
 
+@app.route('/method', methods=['GET', 'POST'])
 def method(): 
     if request.method == 'GET': 
         name = request.args.get("name") 
-        
+        name = request.form["name"] 
         return "GET으로 전달된 데이터({}, {})".format(name) 
     # POST
     else: 
