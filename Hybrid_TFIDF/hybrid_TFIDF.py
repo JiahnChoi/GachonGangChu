@@ -486,7 +486,7 @@ def test():
     track=request.form['track']
     recommend = required_rec(cur, stdnum, track, grade, favpro, unfavpro)
     new_lec=new_rec(cur,fir,sec,grade)
-    return render_template('required3.html',user=stdnum, level=grade,point=track, fav_pro=favpro, unfav_pro=unfavpro,result1=recommend, result2=new_lec)
+    return render_template('required3.html',user=stdnum, level=grade,point=track, fav_pro=favpro, unfav_pro=unfavpro,table1=[recommend.to_html(index=False, classes='data', justify='center')], title1=recommend.columns.values, table2=[new_lec.to_html(index=False,classes='data',justify='center')], title2=new_lec.columns.values)
 
 @app.route('/method', methods=['GET', 'POST'])
 def method(): 
@@ -500,7 +500,7 @@ def method():
         dataFrame = csv_to_dataFrame()
         cosine_matrix = make_cosine_matrix(dataFrame)
         result = get_recommendations(name, cosine_matrix)
-        return render_template('sub2.html',result1 = result)
+        return render_template('sub2.html', table3=[result.to_html(index=False,classes='data',justify='center')], title3=result.columns.values)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -37,6 +37,10 @@
             <h1>교양추천 페이지</h1>
             <center><img src="https://user-images.githubusercontent.com/81917271/168728796-8b95ecdd-66e6-4eec-88ec-1f5ec0e4c056.jpg" width="300" height="300"></center>
             <center>교양 추천 목록입니다 : {{result1}}</center>
+            <center>{% for table in table3 %}
+                {{title3[loop.index]}}
+                {{ table|safe }}
+                {% endfor %}</center>
         </div><br>
         
         <div class="footer">
