@@ -476,8 +476,7 @@ def move2():
     if request.method == 'GET':   
         return redirect(url_for('method'))
     return render_template('sub.html')
-
-
+    
 @app.route('/send', methods=['GET', 'POST'])
 def test():
     stdnum=request.form['stdnum']
@@ -501,7 +500,7 @@ def method():
         dataFrame = csv_to_dataFrame()
         cosine_matrix = make_cosine_matrix(dataFrame)
         result = get_recommendations(name, cosine_matrix)
-        return  "결과값: {}".format(result.to_html(justify='center', border=2))
+        return render_template('sub2.html',result1 = result)
 
 if __name__ == '__main__':
     app.run(debug=True)
