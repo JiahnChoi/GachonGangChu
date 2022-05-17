@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+import pandas as pd
 
 driver = webdriver.Chrome('C:/Users/USer/chromedriver_win32/chromedriver.exe')
 
