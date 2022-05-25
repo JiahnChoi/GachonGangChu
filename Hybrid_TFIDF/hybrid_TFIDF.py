@@ -502,6 +502,7 @@ def method():
         result = get_recommendations(name, cosine_matrix)
         return render_template('sub2.html', table3=[result.to_html(index=False,classes='data',justify='center')], title3=result.columns.values)
 
+'''
 @app.route('/major')
 def major():
     return render_template('required2.html')
@@ -513,6 +514,7 @@ def major():
 @app.route('/home')
 def major():
     return render_template('gaga.html')
+'''
 
 if __name__ == '__main__':
     app.run(debug=True)
