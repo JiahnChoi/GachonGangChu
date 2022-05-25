@@ -8,9 +8,9 @@ from flask import Flask, render_template, redirect, request, url_for
 # *******************************************경로 설정 필요
 # 조병근이 보낸 파일 세개 이용할 것
 # 라이브러리 다음에 바로 읽어줘야 메소드에서 읽어서 실행할 수 있으므로 라이브러리 바로 다음에 읽어와줄것
-cur = pd.read_excel('C:/Users/USer/.git/GachonGangChu/22-1 소웨 전공.xlsx')
-fir = pd.read_excel('C:/Users/USer/.git/GachonGangChu/21-1 소웨 전공.xls')
-sec = pd.read_excel('C:/Users/USer/.git/GachonGangChu/20-1 소웨 전공.xlsx')
+cur = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/22-1 소웨 전공.xlsx')
+fir = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/21-1 소웨 전공.xlsx')
+sec = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/20-1 소웨 전공.xlsx')
 
 class MatrixFactorization():
     def __init__(self, R, k, learning_rate, reg_param, epochs, verbose=False):
@@ -135,7 +135,7 @@ class MatrixFactorization():
 # 과목추천
 # 데이터프레임 final이 추천하는 과목
 def required_rec(SW, student_ID, track, year ,fav_pro, hate_pro):
-    data_df = pd.read_csv('C:/Users/USer/.git/GachonGangChu/졸작수강기록.csv', encoding='ISO-8859-1')
+    data_df = pd.read_csv('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/졸작수강기록.csv', encoding='ISO-8859-1')
     if __name__ == "__main__":
         R = data_df.to_numpy()
 
@@ -207,8 +207,8 @@ def required_rec(SW, student_ID, track, year ,fav_pro, hate_pro):
 
     # ************************************************************************ 경로 설정 해줘야함
     # csv 파일을 생성하고 그 csv를 읽어와야 오류가 안남, 뒤에 헤더나 인덱스 건들일 필요x
-    result_df.to_csv('C:/Users/USer/.git/GachonGangChu/sgd.csv', header=False, index=False, encoding='utf-8-sig')
-    sgd_df = pd.read_csv('C:/Users/USer/.git/GachonGangChu/sgd.csv')
+    result_df.to_csv('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/sgd.csv', header=False, index=False, encoding='utf-8-sig')
+    sgd_df = pd.read_csv('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/sgd.csv')
     sgd_df.columns = ["한명묵", "정용주", "최아영", "민연아", "강상우", "이주형", "노웅기", "최재영", "정옥란", "황효석", "이상웅", "유준", "최재혁", "조정찬",
                       "김원", "최기호", "정윤현", "민홍", "오영민", "차영운", "김철연", "전영철"]
     sgd_np = sgd_df.to_numpy()
@@ -220,8 +220,8 @@ def required_rec(SW, student_ID, track, year ,fav_pro, hate_pro):
 
     # ************************************************************************ 경로 설정 해줘야함
     # csv 파일을 생성하고 그 csv를 읽어와야 오류가 안남, 뒤에 헤더나 인덱스 건들일 필요 x
-    result_fp.to_csv('C:/Users/USer/.git/GachonGangChu/fp.csv', header=False, index=False, encoding='utf-8-sig')
-    relation = pd.read_csv('C:/Users/USer/.git/GachonGangChu/fp.csv')
+    result_fp.to_csv('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/fp.csv', header=False, index=False, encoding='utf-8-sig')
+    relation = pd.read_csv('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/fp.csv')
     relation.columns = ['support', 'itemsets']
 
     # 20점 이상의 점수를 받은 교수님들은 어느정도 학생이 선호한다고 생각
@@ -356,7 +356,7 @@ import pandas as pd # 데이터프레임 사용을 위해
 from sklearn.metrics.pairwise import cosine_similarity
 
 # 키워드 csv파일 가져오기
-csv = pd.read_csv('C:/Users/USer/.git/GachonGangChu/TFIDF/2020_1_교양_키워드.csv', encoding='cp949')
+csv = pd.read_csv('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/2020_1_교양_키워드.csv', encoding='cp949')
 
 def csv_to_dataFrame():
     # 과목명 리스트형태로 가져오기
@@ -501,6 +501,18 @@ def method():
         cosine_matrix = make_cosine_matrix(dataFrame)
         result = get_recommendations(name, cosine_matrix)
         return render_template('sub2.html', table3=[result.to_html(index=False,classes='data',justify='center')], title3=result.columns.values)
+
+@app.route('/major')
+def major():
+    return render_template('required2.html')
+
+@app.route('/subject')
+def major():
+    return render_template('sub.html')
+
+@app.route('/home')
+def major():
+    return render_template('gaga.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
