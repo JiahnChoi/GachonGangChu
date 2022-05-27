@@ -6,7 +6,6 @@ from mlxtend.frequent_patterns import fpgrowth
 from flask import Flask, render_template, redirect, request, url_for
 
 # *******************************************경로 설정 필요
-# 조병근이 보낸 파일 세개 이용할 것
 # 라이브러리 다음에 바로 읽어줘야 메소드에서 읽어서 실행할 수 있으므로 라이브러리 바로 다음에 읽어와줄것
 cur = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/22-1 소웨 전공.xlsx')
 fir = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/21-1 소웨 전공.xlsx')
