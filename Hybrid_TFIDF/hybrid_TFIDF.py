@@ -6,7 +6,6 @@ from mlxtend.frequent_patterns import fpgrowth
 from flask import Flask, render_template, redirect, request, url_for
 
 # *******************************************경로 설정 필요
-# 라이브러리 다음에 바로 읽어줘야 메소드에서 읽어서 실행할 수 있으므로 라이브러리 바로 다음에 읽어와줄것
 cur = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/22-1 소웨 전공.xlsx')
 fir = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/21-1 소웨 전공.xlsx')
 sec = pd.read_excel('C:/Users/csj04/OneDrive/바탕 화면/GachonGangChu/Hybrid_TFIDF/20-1 소웨 전공.xlsx')
@@ -289,11 +288,6 @@ def required_rec(SW, student_ID, track, year ,fav_pro, hate_pro):
     final.drop(['점수'], axis=1, inplace=True)
     return final
 
-    # new_lec : 새로 개설된 강의
-    # new_cp : 새로 오신 교수님이 개설한 강의
-    # 새로 오신 교수님, 새로 개설된 강의를 따로 추천
-
-
 def new_rec(SW, prev, past, year):
     new = pd.DataFrame()
     new_lec = pd.DataFrame()
@@ -351,7 +345,7 @@ def new_rec(SW, prev, past, year):
 
 ############################### TFIDF ###########################################3     
 # -*- coding: utf-8 -*-
-import pandas as pd # 데이터프레임 사용을 위해
+import pandas as pd 
 from sklearn.metrics.pairwise import cosine_similarity
 
 # 키워드 csv파일 가져오기
